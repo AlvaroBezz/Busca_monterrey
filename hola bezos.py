@@ -1,6 +1,8 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
+#esto es un comentario para comprobar q funciona git, te tocaré ramon
+
 G = nx.Graph()
 
 tramos_linea_verde = [
