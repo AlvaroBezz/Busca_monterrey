@@ -1,7 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-#esto es un comentario para comprobar q funciona git, te tocaré ramon
 
 G = nx.Graph()
 
@@ -21,11 +20,21 @@ tramos_linea_verde = [
 ]
 
 tramos_linea_roja = [
-    ()
+    ("Hospital Metropolitano", "Los Ángeles", 2),
+    ("Los Ángeles", "Ruiz Cortines", 2),
+    ("Ruiz Cortines", "Col. Moderna", 2),
+    ("Col. Moderna", "Metalúrgicos", 2),
+    ("Metalúrgicos", "Félix U. Gómez", 2),
+    ("Félix U. Gómez", "Col Obrera", 2),
+    ("Col Obrera", "Santa Lucía", 2),
+    ("Santa Lucía", "Gral A. Zaragoza", 2)
 ]
 
-for origen, destino, tiempo in tramos_linea_verde:
+for origen, destino, tiempo in tramos_linea_verde + tramos_linea_roja:
     G.add_edge(origen, destino, weight = tiempo)
+
+#for origen, destino, tiempo in tramos_linea_roja:
+    #G.add_edge(origen, destino, weight = tiempo)
 
 nx.draw(G, with_labels=True)
 plt.show()
