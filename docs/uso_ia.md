@@ -132,3 +132,7 @@ revisar el código.
 - **Cómo se revisó y validó**: 23 pruebas de `pytest` en verde (se añade una que comprueba
   que las líneas 4 y 6 no entran en el grafo); prueba en navegador de escritorio y móvil.
   *(El grupo debe comprobar en Google Maps las posiciones de las líneas 4 y 6.)*
+- **Limpieza del repositorio** (mensaje de Mario: «pero mete el codigo actualizado en github y
+  quita la mierda que sobre»): se quitan el primer prototipo del grafo
+  (`legacy/grafo_inicial.py`), las notas iniciales y la carpeta vacía de capturas. Siguen en el
+  historial de git.

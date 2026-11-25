@@ -76,8 +76,7 @@ Busca_monterrey/
 │   ├── factores.json        parámetros de g(n) y h(n): franjas, clima, transbordos
 │   ├── lineas_en_obras.json Líneas 4 y 6 (solo para el mapa, posiciones aproximadas)
 │   └── fuentes/             Excel original de tiempos del grupo
-├── legacy/grafo_inicial.py  primer grafo de Ramón (historia del proyecto)
-└── docs/                    uso de IA, material para la memoria y capturas
+└── docs/                    uso de IA y material para la memoria
 ```
 
 Cada archivo de código está dividido en secciones numeradas, con una explicación al

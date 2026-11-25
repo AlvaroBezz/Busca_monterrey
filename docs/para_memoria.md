@@ -148,4 +148,4 @@ ruta óptima; una h más ajustada (por ejemplo, con la velocidad media) dejaría
 | pytest | Pruebas automáticas |
 | Git y GitHub | Control de versiones |
 
-Matplotlib ya no se usa (solo en `legacy/grafo_inicial.py`).
+Matplotlib ya no se usa (solo lo usaba el primer prototipo del grafo, que sigue en el historial de git).
