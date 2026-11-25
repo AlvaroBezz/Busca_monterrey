@@ -84,3 +84,25 @@ revisar el código.
 - **Qué se aceptó y qué se descartó/modificó**: *(a rellenar por el grupo)*
 - **Cómo se revisó y validó**: 21 pruebas de `pytest` en verde; la web se probó en navegador
   de escritorio y móvil con NiceGUI 3.19 y 4.1.
+
+---
+
+## 25/11/2026 · Hora de llegada y revisión de las líneas 4 y 6 · Herramienta: Claude Code (asistente de programación de Anthropic)
+
+- **Prompt utilizado** (mensaje literal de Mario): «Otros dos cambios: Los requisitos son hacer al
+  menos 3 líneas, pero nos dijo el profesor que podemos hacer las que queramos, como si hacemos
+  todas (nos dará más nota) asi que mete todas. A parte de poder poner el sellector de hora de
+  salida pon uno de hora de llegada tambien, y si no pones nada por default deberia de poner la
+  hora actual. Y lo de compartirlo no seria mejor en vercel, estoy muy acostumbrado a esa
+  paltaforma la verdad»
+- **Salida obtenida**: `calcular_ruta_llegando_a()` en `metro/ruta.py` (estima la salida y la
+  ajusta hasta que la llegada cuadra) con su prueba; selector «Salir a las / Llegar a las» en la
+  interfaz, que usa la hora actual de Monterrey si se deja vacío.
+- **Líneas 4 y 6**: la IA buscó su estado (Wikipedia, MVS Noticias 20/10/2026, Quadratín
+  02/11/2026, Los Tubos 03/11/2026). A 25/11/2026 siguen en construcción, sin estaciones abiertas
+  confirmadas ni coordenadas o tiempos oficiales, y la Línea 5 está cancelada. El grupo decidió
+  calcular solo con las líneas en servicio (L1, L2 y L3) y avisar en el mapa de que la 4 y la 6
+  están en construcción.
+- **Qué se aceptó y qué se descartó/modificó**: *(a rellenar por el grupo)*
+- **Cómo se revisó y validó**: 22 pruebas de `pytest` en verde; prueba en navegador del modo
+  «Llegar a las» y de la hora vacía.

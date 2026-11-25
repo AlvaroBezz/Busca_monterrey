@@ -86,3 +86,12 @@ def test_lluvia_y_punta_tardan_mas():
 def test_fuera_de_horario_avisa():
     r = calcular_ruta("talleres", "exposicion", hora="02:00")
     assert any("cerrado" in a for a in r["avisos"])
+
+
+def test_llegar_a_una_hora():
+    from metro.ruta import calcular_ruta_llegando_a
+    r = calcular_ruta_llegando_a("talleres", "hospital_metropolitano", "09:00")
+    assert r["modo"] == "llegada"
+    # La llegada calculada cae como mucho un minuto alrededor de la hora pedida
+    llegada = int(r["hora_llegada"][:2]) * 60 + int(r["hora_llegada"][3:])
+    assert abs(llegada - 9 * 60) <= 1

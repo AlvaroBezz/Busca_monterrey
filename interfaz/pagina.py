@@ -6,7 +6,7 @@ from interfaz.estilos import CSS
 from interfaz.mapa import MapaMetro
 from interfaz.panel import PanelViaje
 from interfaz.resultado import mostrar_bienvenida, mostrar_resultado
-from metro.ruta import calcular_ruta
+from metro.ruta import calcular_ruta, calcular_ruta_llegando_a
 
 
 @ui.page("/")
@@ -47,7 +47,13 @@ def pagina_principal():
         calcular()
 
     def calcular():
-        r = calcular_ruta(**panel.parametros())
+        parametros = panel.parametros()
+        modo = parametros.pop("modo")
+        hora = parametros.pop("hora")
+        if modo == "llegada":
+            r = calcular_ruta_llegando_a(hora_llegada=hora, **parametros)
+        else:
+            r = calcular_ruta(hora=hora, **parametros)
         zona_resultado.clear()
         with zona_resultado:
             mostrar_resultado(r)

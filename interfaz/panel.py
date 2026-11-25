@@ -57,9 +57,12 @@ class PanelViaje:
                 ui.button(icon="swap_vert", on_click=self.intercambiar) \
                     .props("round unelevated color=grey-2 text-color=grey-9").tooltip("Intercambiar")
 
+            self.modo = ui.toggle({"salida": "Salir a las", "llegada": "Llegar a las"}, value="salida") \
+                .props("spread rounded unelevated no-caps dense toggle-color=grey-9 color=grey-2 "
+                       "text-color=grey-9").classes("w-full")
             with ui.row().classes("w-full no-wrap gap-2 items-center"):
-                self.hora = ui.input("Salida", value=hora_actual_monterrey()) \
-                    .props("type=time outlined rounded dense").classes("grow")
+                self.hora = ui.input("Hora (si la dejas vacía, ahora mismo)", value=hora_actual_monterrey()) \
+                    .props("type=time outlined rounded dense clearable").classes("grow")
                 ui.button("Ahora", on_click=lambda: self.hora.set_value(hora_actual_monterrey())) \
                     .props("flat dense no-caps color=grey-8")
             self.dia = ui.toggle({"laborable": "Entre semana", "fin_de_semana": "Fin de semana / festivo"},
@@ -99,6 +102,7 @@ class PanelViaje:
         return {
             "origen": self.origen.value,
             "destino": self.destino.value,
+            "modo": self.modo.value,
             "hora": self.hora.value or hora_actual_monterrey(),
             "dia": self.dia.value,
             "clima": self.clima.value,

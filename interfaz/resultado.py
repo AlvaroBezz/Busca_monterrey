@@ -55,14 +55,19 @@ def mostrar_resultado(r):
                     ui.label(f"{r['tiempo_total_min']:.0f}").classes("cifra-grande")
                     ui.label("min").classes("text-xl font-semibold opacity-80")
                 with ui.column().classes("items-end gap-0"):
-                    ui.label("Llegas a las").classes("text-xs opacity-70")
-                    ui.label(r["hora_llegada"]).classes("text-3xl font-bold")
+                    if r.get("modo") == "llegada":
+                        ui.label("Sal a las").classes("text-xs opacity-70")
+                        ui.label(r["hora_salida"]).classes("text-3xl font-bold")
+                    else:
+                        ui.label("Llegas a las").classes("text-xs opacity-70")
+                        ui.label(r["hora_llegada"]).classes("text-3xl font-bold")
             with ui.row().classes("gap-2"):
                 t = r["num_transbordos"]
                 texto_t = "Sin transbordos" if t == 0 else f"{t} transbordo{'s' if t > 1 else ''}"
                 for texto, icono in ((texto_t, "sync_alt"),
                                      (f"{r['distancia_km']:.1f} km", "straighten"),
-                                     (f"Salida {r['hora_salida']}", "schedule")):
+                                     ((f"Llegada {r['hora_llegada']}" if r.get("modo") == "llegada"
+                                       else f"Salida {r['hora_salida']}"), "schedule")):
                     with ui.element("span").classes("insignia"):
                         ui.icon(icono).classes("text-sm")
                         ui.label(texto)

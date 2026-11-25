@@ -45,6 +45,7 @@ class MapaMetro:
                     ui.element("span").style("width:12px;height:12px;border-radius:50%;border:3px solid #1F2937;"
                                              "background:white;margin:0 5px")
                     ui.label("Transbordo").classes("text-sm")
+                ui.label("Líneas 4 y 6: en construcción").classes("text-xs text-gray-400 mt-1")
 
         self.mapa.on("map-click", self._al_hacer_clic)
         self.dibujar_red(atenuada=False)

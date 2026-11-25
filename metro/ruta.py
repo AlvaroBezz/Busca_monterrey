@@ -152,6 +152,7 @@ def calcular_ruta(origen, destino, hora="08:15", dia="laborable", clima="despeja
         "destino": datos.estaciones[destino]["nombre"],
         "tiempo_total_min": round(tiempo, 1),
         "coste_astar_min": round(resultado.coste_total_min, 2),
+        "modo": "salida",
         "hora_salida": hora,
         "hora_llegada": _hora_mas(hora, tiempo),
         "num_transbordos": num_transbordos,
@@ -169,3 +170,25 @@ def calcular_ruta(origen, destino, hora="08:15", dia="laborable", clima="despeja
         "nodos_expandidos_dijkstra": dijkstra.nodos_expandidos,
         "avisos": avisos,
     }
+
+
+def calcular_ruta_llegando_a(origen, destino, hora_llegada, **opciones):
+    """Como calcular_ruta(), pero el usuario dice a qué hora quiere LLEGAR.
+
+    El tiempo de viaje depende de la hora de salida (franja horaria), así que se
+    estima la salida y se ajusta unas pocas veces hasta que la llegada cuadra:
+        salida = llegada deseada − duración del viaje saliendo a esa hora
+    """
+    salida = _hora_mas(hora_llegada, -30)          # primera suposición: media hora antes
+    resultado = calcular_ruta(origen, destino, hora=salida, **opciones)
+    for _ in range(4):
+        if not resultado.get("ok"):
+            return resultado
+        nueva_salida = _hora_mas(hora_llegada, -resultado["tiempo_total_min"])
+        if nueva_salida == salida:
+            break
+        salida = nueva_salida
+        resultado = calcular_ruta(origen, destino, hora=salida, **opciones)
+    resultado["modo"] = "llegada"
+    resultado["hora_llegada_deseada"] = hora_llegada
+    return resultado
