@@ -173,7 +173,7 @@ class MapaMetro:
     def dibujar_obras(self):
         """Líneas 4 y 6 en discontinua: están en construcción y NO se usan para calcular rutas.
 
-        Las posiciones de sus estaciones son aproximadas (OpenStreetMap, ver data/lineas_en_obras.json).
+        Las posiciones de sus estaciones son aproximadas (OpenStreetMap, ver LINEAS_EN_OBRAS en metro.py).
         """
         with self.mapa:
             for linea in lineas_en_obras():

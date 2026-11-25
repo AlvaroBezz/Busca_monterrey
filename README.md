@@ -28,9 +28,8 @@ alrededor de un minuto en despertarla.
 
 Necesitas Python 3.10 o superior (en Windows, desde python.org marcando "Add Python to PATH").
 
-- **Windows**: descarga el proyecto (botón verde *Code* → *Download ZIP*), descomprímelo y haz
-  doble clic en `iniciar_windows.bat`. Se abre sola en el navegador.
-- **Cualquier sistema**:
+Sin git, en Windows: botón verde *Code* → *Download ZIP*, descomprímelo, abre una terminal en
+esa carpeta y ejecuta las dos últimas líneas de abajo. Con git:
 
 ```bash
 git clone https://github.com/AlvaroBezz/Busca_monterrey.git
@@ -66,23 +65,16 @@ Comprueban, entre otras cosas, que:
 
 ```
 Busca_monterrey/
-├── main.py            la web (NiceGUI): estilos, mapa, buscador, resultado y arranque
-├── metro.py           el cálculo: datos, grafo, g(n), h(n), A* y calcular_ruta()
-├── test_metro.py      pruebas con pytest
-├── excel_a_json.py    convierte el Excel del grupo en los JSON de data/
-├── data/
-│   ├── estaciones.json      38 estaciones con coordenadas, líneas y accesibilidad
-│   ├── tramos.json          38 tramos con distancia, tiempo de marcha y tipo de vía
-│   ├── factores.json        parámetros de g(n) y h(n): franjas, clima, transbordos
-│   ├── lineas_en_obras.json Líneas 4 y 6 (solo para el mapa, posiciones aproximadas)
-│   └── fuentes/             Excel original de tiempos del grupo
-└── docs/                    uso de IA y material para la memoria
+├── main.py                 la web: estilos, mapa, buscador, resultado y arranque
+├── metro.py                el cálculo: grafo, g(n), h(n), A*, calcular_ruta() y los datos de la red
+├── test_metro.py           pruebas con pytest
+├── memoria_y_uso_ia.md     material para la memoria y registro obligatorio de uso de IA
+├── Metrorrey_tiempos_entre_estaciones.xlsx   hoja de tiempos del grupo (origen de los datos)
+└── requirements.txt
 ```
 
 Cada archivo de código está dividido en secciones numeradas, con una explicación al
 principio de cada una. Quien vaya a defender el A\* solo tiene que leer `metro.py`.
-
-Si se cambia el Excel, se regeneran los datos con `python excel_a_json.py`.
 
 ## Modelo en una línea
 
@@ -90,12 +82,12 @@ Si se cambia el Excel, se regeneran los datos con `python excel_a_json.py`.
   en los tramos, y pasillo + intervalo/2 + saturación en punta (+ penalizaciones) en los transbordos.
 - **h(n)** = distancia en línea recta hasta el destino / 80 km/h. Es admisible y consistente.
 
-El detalle, con un ejemplo numérico, está en [docs/para_memoria.md](docs/para_memoria.md).
+El detalle, con un ejemplo numérico, está en [memoria_y_uso_ia.md](memoria_y_uso_ia.md).
 
 ## Fuentes de datos
 
-- Tiempos y distancias: hoja de cálculo del grupo `data/fuentes/Metrorrey_tiempos_entre_estaciones.xlsx`
-  (elaborada con ayuda de IA; ver `docs/uso_ia.md`).
+- Tiempos y distancias: hoja de cálculo del grupo `Metrorrey_tiempos_entre_estaciones.xlsx`
+  (elaborada con ayuda de IA; ver `memoria_y_uso_ia.md`).
 - Coordenadas L1 y L2: Wikipedia, *List of Metrorrey stations*.
 - Coordenadas L3: Wikidata (propiedad P625 de cada estación). Simón Bolívar: Wikipedia en español
   (la lista en inglés le pone por error las coordenadas de Mitras).
@@ -112,4 +104,4 @@ Francisco de Borja Elizaga Royo, Ramón Andreu Oliete y Mario López Delgado.
 ## Uso de inteligencia artificial
 
 Parte del código y de la documentación se ha generado con ayuda de herramientas de IA.
-Todo uso está declarado en [docs/uso_ia.md](docs/uso_ia.md), tal como exige la asignatura.
+Todo uso está declarado en [memoria_y_uso_ia.md](memoria_y_uso_ia.md), tal como exige la asignatura.
