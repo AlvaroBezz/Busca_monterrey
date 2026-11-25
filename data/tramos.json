@@ -1,0 +1,344 @@
+[
+  {
+    "linea": "L1",
+    "desde": "talleres",
+    "hasta": "san_bernabe",
+    "distancia_m": 762,
+    "tipo": "elevado",
+    "marcha_s": 62,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "san_bernabe",
+    "hasta": "unidad_modelo",
+    "distancia_m": 1037,
+    "tipo": "elevado",
+    "marcha_s": 76,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "unidad_modelo",
+    "hasta": "aztlan",
+    "distancia_m": 1400,
+    "tipo": "elevado",
+    "marcha_s": 95,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "aztlan",
+    "hasta": "penitenciaria",
+    "distancia_m": 1179,
+    "tipo": "elevado",
+    "marcha_s": 84,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "penitenciaria",
+    "hasta": "alfonso_reyes",
+    "distancia_m": 854,
+    "tipo": "elevado",
+    "marcha_s": 67,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "alfonso_reyes",
+    "hasta": "mitras",
+    "distancia_m": 628,
+    "tipo": "elevado",
+    "marcha_s": 55,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "mitras",
+    "hasta": "simon_bolivar",
+    "distancia_m": 620,
+    "tipo": "elevado",
+    "marcha_s": 55,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "simon_bolivar",
+    "hasta": "hospital",
+    "distancia_m": 1621,
+    "tipo": "elevado",
+    "marcha_s": 106,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "hospital",
+    "hasta": "edison",
+    "distancia_m": 1271,
+    "tipo": "elevado",
+    "marcha_s": 88,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "edison",
+    "hasta": "central",
+    "distancia_m": 977,
+    "tipo": "elevado",
+    "marcha_s": 73,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "central",
+    "hasta": "cuauhtemoc",
+    "distancia_m": 805,
+    "tipo": "elevado",
+    "marcha_s": 64,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "cuauhtemoc",
+    "hasta": "del_golfo",
+    "distancia_m": 1105,
+    "tipo": "elevado",
+    "marcha_s": 80,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "del_golfo",
+    "hasta": "felix_u_gomez",
+    "distancia_m": 1072,
+    "tipo": "elevado",
+    "marcha_s": 78,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "felix_u_gomez",
+    "hasta": "parque_fundidora",
+    "distancia_m": 918,
+    "tipo": "elevado",
+    "marcha_s": 70,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "parque_fundidora",
+    "hasta": "y_griega",
+    "distancia_m": 931,
+    "tipo": "elevado",
+    "marcha_s": 71,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "y_griega",
+    "hasta": "eloy_cavazos",
+    "distancia_m": 1663,
+    "tipo": "elevado",
+    "marcha_s": 108,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "eloy_cavazos",
+    "hasta": "lerdo_de_tejada",
+    "distancia_m": 1215,
+    "tipo": "elevado",
+    "marcha_s": 85,
+    "confianza": "media"
+  },
+  {
+    "linea": "L1",
+    "desde": "lerdo_de_tejada",
+    "hasta": "exposicion",
+    "distancia_m": 770,
+    "tipo": "elevado",
+    "marcha_s": 63,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "sendero",
+    "hasta": "santiago_tapia",
+    "distancia_m": 1214,
+    "tipo": "elevado",
+    "marcha_s": 85,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "santiago_tapia",
+    "hasta": "san_nicolas",
+    "distancia_m": 872,
+    "tipo": "elevado",
+    "marcha_s": 68,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "san_nicolas",
+    "hasta": "anahuac",
+    "distancia_m": 1622,
+    "tipo": "elevado",
+    "marcha_s": 106,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "anahuac",
+    "hasta": "universidad",
+    "distancia_m": 2086,
+    "tipo": "elevado",
+    "marcha_s": 130,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "universidad",
+    "hasta": "ninos_heroes",
+    "distancia_m": 955,
+    "tipo": "elevado",
+    "marcha_s": 72,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "ninos_heroes",
+    "hasta": "regina",
+    "distancia_m": 1213,
+    "tipo": "subterraneo",
+    "marcha_s": 85,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "regina",
+    "hasta": "general_anaya",
+    "distancia_m": 1400,
+    "tipo": "subterraneo",
+    "marcha_s": 95,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "general_anaya",
+    "hasta": "cuauhtemoc",
+    "distancia_m": 1354,
+    "tipo": "subterraneo",
+    "marcha_s": 93,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "cuauhtemoc",
+    "hasta": "alameda",
+    "distancia_m": 1157,
+    "tipo": "subterraneo",
+    "marcha_s": 82,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "alameda",
+    "hasta": "fundadores",
+    "distancia_m": 556,
+    "tipo": "subterraneo",
+    "marcha_s": 52,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "fundadores",
+    "hasta": "padre_mier",
+    "distancia_m": 674,
+    "tipo": "subterraneo",
+    "marcha_s": 58,
+    "confianza": "media"
+  },
+  {
+    "linea": "L2",
+    "desde": "padre_mier",
+    "hasta": "general_i_zaragoza",
+    "distancia_m": 597,
+    "tipo": "subterraneo",
+    "marcha_s": 54,
+    "confianza": "media"
+  },
+  {
+    "linea": "L3",
+    "desde": "hospital_metropolitano",
+    "hasta": "los_angeles",
+    "distancia_m": 884,
+    "tipo": "elevado",
+    "marcha_s": 68,
+    "confianza": "baja"
+  },
+  {
+    "linea": "L3",
+    "desde": "los_angeles",
+    "hasta": "ruiz_cortines",
+    "distancia_m": 862,
+    "tipo": "elevado",
+    "marcha_s": 67,
+    "confianza": "baja"
+  },
+  {
+    "linea": "L3",
+    "desde": "ruiz_cortines",
+    "hasta": "colonia_moderna",
+    "distancia_m": 1008,
+    "tipo": "elevado",
+    "marcha_s": 75,
+    "confianza": "baja"
+  },
+  {
+    "linea": "L3",
+    "desde": "colonia_moderna",
+    "hasta": "metalurgicos",
+    "distancia_m": 1037,
+    "tipo": "elevado",
+    "marcha_s": 76,
+    "confianza": "baja"
+  },
+  {
+    "linea": "L3",
+    "desde": "metalurgicos",
+    "hasta": "felix_u_gomez",
+    "distancia_m": 1533,
+    "tipo": "elevado",
+    "marcha_s": 102,
+    "confianza": "baja"
+  },
+  {
+    "linea": "L3",
+    "desde": "felix_u_gomez",
+    "hasta": "colonia_obrera",
+    "distancia_m": 617,
+    "tipo": "elevado",
+    "marcha_s": 55,
+    "confianza": "baja"
+  },
+  {
+    "linea": "L3",
+    "desde": "colonia_obrera",
+    "hasta": "santa_lucia",
+    "distancia_m": 616,
+    "tipo": "elevado",
+    "marcha_s": 55,
+    "confianza": "baja"
+  },
+  {
+    "linea": "L3",
+    "desde": "santa_lucia",
+    "hasta": "general_i_zaragoza",
+    "distancia_m": 943,
+    "tipo": "subterraneo",
+    "marcha_s": 71,
+    "confianza": "baja"
+  }
+]

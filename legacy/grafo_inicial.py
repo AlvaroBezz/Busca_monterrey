@@ -1,3 +1,11 @@
+# =====================================================================
+# VERSIÓN INICIAL DEL GRAFO (autor: Ramón Andreu Oliete)
+# Primer prototipo con NetworkX, conservado como historia del proyecto.
+# Se movió aquí desde "hola bezos.py". La versión actual está en metro/grafo.py,
+# que añade Penitenciaría (L1), usa los nombres oficiales del Excel y pesos
+# reales en minutos en lugar de 2 para todos los tramos.
+# Este fichero NO lo usa la aplicación.
+# =====================================================================
 import networkx as nx
 import matplotlib.pyplot as plt
 

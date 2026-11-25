@@ -1,0 +1,739 @@
+[
+  {
+    "id": "talleres",
+    "nombre": "Talleres",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.75389,
+    "lon": -100.36528,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "san_bernabe",
+    "nombre": "San Bernabé",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.74833,
+    "lon": -100.36167,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "unidad_modelo",
+    "nombre": "Unidad Modelo",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.74194,
+    "lon": -100.355,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "aztlan",
+    "nombre": "Aztlán",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.73222,
+    "lon": -100.3475,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "penitenciaria",
+    "nombre": "Penitenciaría",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.72333,
+    "lon": -100.3425,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "alfonso_reyes",
+    "nombre": "Alfonso Reyes",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.71611,
+    "lon": -100.3425,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "mitras",
+    "nombre": "Mitras",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.70556,
+    "lon": -100.3425,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "simon_bolivar",
+    "nombre": "Simón Bolívar",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.69904,
+    "lon": -100.34324,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (es), artículo de la estación, consultada 25/11/2026"
+  },
+  {
+    "id": "hospital",
+    "nombre": "Hospital",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.69194,
+    "lon": -100.34417,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "edison",
+    "nombre": "Edison",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.68694,
+    "lon": -100.33361,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "central",
+    "nombre": "Central",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.68694,
+    "lon": -100.32444,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "cuauhtemoc",
+    "nombre": "Cuauhtémoc",
+    "alias": [],
+    "lineas": [
+      "L1",
+      "L2"
+    ],
+    "lat": 25.68611,
+    "lon": -100.31694,
+    "tipo_por_linea": {
+      "L1": "elevado",
+      "L2": "subterraneo"
+    },
+    "tipo_dudoso": false,
+    "transbordo": true,
+    "parada_s": 35,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "del_golfo",
+    "nombre": "Del Golfo",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.68512,
+    "lon": -100.30663,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "felix_u_gomez",
+    "nombre": "Félix U. Gómez",
+    "alias": [],
+    "lineas": [
+      "L1",
+      "L3"
+    ],
+    "lat": 25.68389,
+    "lon": -100.29667,
+    "tipo_por_linea": {
+      "L1": "elevado",
+      "L3": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": true,
+    "parada_s": 35,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "parque_fundidora",
+    "nombre": "Parque Fundidora",
+    "alias": [
+      "Arena Monterrey"
+    ],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.68361,
+    "lon": -100.28806,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "y_griega",
+    "nombre": "Y Griega",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.68333,
+    "lon": -100.27933,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "eloy_cavazos",
+    "nombre": "Eloy Cavazos",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.68,
+    "lon": -100.26417,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "lerdo_de_tejada",
+    "nombre": "Lerdo de Tejada",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.67972,
+    "lon": -100.25278,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "exposicion",
+    "nombre": "Exposición",
+    "alias": [],
+    "lineas": [
+      "L1"
+    ],
+    "lat": 25.67944,
+    "lon": -100.24556,
+    "tipo_por_linea": {
+      "L1": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "sendero",
+    "nombre": "Sendero",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.76861,
+    "lon": -100.29278,
+    "tipo_por_linea": {
+      "L2": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "santiago_tapia",
+    "nombre": "Santiago Tapia",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.75926,
+    "lon": -100.29568,
+    "tipo_por_linea": {
+      "L2": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "san_nicolas",
+    "nombre": "San Nicolás",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.75262,
+    "lon": -100.29805,
+    "tipo_por_linea": {
+      "L2": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "anahuac",
+    "nombre": "Anáhuac",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.74028,
+    "lon": -100.3025,
+    "tipo_por_linea": {
+      "L2": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "universidad",
+    "nombre": "Universidad",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.72444,
+    "lon": -100.30833,
+    "tipo_por_linea": {
+      "L2": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "ninos_heroes",
+    "nombre": "Niños Héroes",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.71722,
+    "lon": -100.31111,
+    "tipo_por_linea": {
+      "L2": "transicion"
+    },
+    "tipo_dudoso": true,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "regina",
+    "nombre": "Regina",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.7079,
+    "lon": -100.3141,
+    "tipo_por_linea": {
+      "L2": "subterraneo"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "general_anaya",
+    "nombre": "General Anaya",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.69694,
+    "lon": -100.31667,
+    "tipo_por_linea": {
+      "L2": "subterraneo"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "alameda",
+    "nombre": "Alameda",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.67694,
+    "lon": -100.31833,
+    "tipo_por_linea": {
+      "L2": "subterraneo"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "fundadores",
+    "nombre": "Fundadores",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.67267,
+    "lon": -100.3197,
+    "tipo_por_linea": {
+      "L2": "subterraneo"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "padre_mier",
+    "nombre": "Padre Mier",
+    "alias": [],
+    "lineas": [
+      "L2"
+    ],
+    "lat": 25.66888,
+    "lon": -100.31544,
+    "tipo_por_linea": {
+      "L2": "subterraneo"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "general_i_zaragoza",
+    "nombre": "General I. Zaragoza",
+    "alias": [
+      "Gral. I. Zaragoza",
+      "General Ignacio Zaragoza"
+    ],
+    "lineas": [
+      "L2",
+      "L3"
+    ],
+    "lat": 25.66778,
+    "lon": -100.31028,
+    "tipo_por_linea": {
+      "L2": "subterraneo",
+      "L3": "subterraneo"
+    },
+    "tipo_dudoso": false,
+    "transbordo": true,
+    "parada_s": 35,
+    "accesible": false,
+    "aprox": false,
+    "fuente_coordenadas": "Wikipedia (en), 'List of Metrorrey stations', consultada 25/11/2026"
+  },
+  {
+    "id": "hospital_metropolitano",
+    "nombre": "Hospital Metropolitano",
+    "alias": [],
+    "lineas": [
+      "L3"
+    ],
+    "lat": 25.71376,
+    "lon": -100.27359,
+    "tipo_por_linea": {
+      "L3": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": true,
+    "aprox": false,
+    "fuente_coordenadas": "Wikidata (propiedad P625), consultada 25/11/2026"
+  },
+  {
+    "id": "los_angeles",
+    "nombre": "Los Ángeles",
+    "alias": [],
+    "lineas": [
+      "L3"
+    ],
+    "lat": 25.70812,
+    "lon": -100.28171,
+    "tipo_por_linea": {
+      "L3": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": true,
+    "aprox": false,
+    "fuente_coordenadas": "Wikidata (propiedad P625), consultada 25/11/2026"
+  },
+  {
+    "id": "ruiz_cortines",
+    "nombre": "Ruiz Cortines",
+    "alias": [],
+    "lineas": [
+      "L3"
+    ],
+    "lat": 25.70375,
+    "lon": -100.28796,
+    "tipo_por_linea": {
+      "L3": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": true,
+    "aprox": false,
+    "fuente_coordenadas": "Wikidata (propiedad P625), consultada 25/11/2026"
+  },
+  {
+    "id": "colonia_moderna",
+    "nombre": "Colonia Moderna",
+    "alias": [
+      "Col. Moderna"
+    ],
+    "lineas": [
+      "L3"
+    ],
+    "lat": 25.70046,
+    "lon": -100.2926,
+    "tipo_por_linea": {
+      "L3": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": true,
+    "aprox": false,
+    "fuente_coordenadas": "Wikidata (propiedad P625), consultada 25/11/2026"
+  },
+  {
+    "id": "metalurgicos",
+    "nombre": "Metalúrgicos",
+    "alias": [],
+    "lineas": [
+      "L3"
+    ],
+    "lat": 25.69102,
+    "lon": -100.29582,
+    "tipo_por_linea": {
+      "L3": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": true,
+    "aprox": false,
+    "fuente_coordenadas": "Wikidata (propiedad P625), consultada 25/11/2026"
+  },
+  {
+    "id": "colonia_obrera",
+    "nombre": "Colonia Obrera",
+    "alias": [
+      "Col. Obrera"
+    ],
+    "lineas": [
+      "L3"
+    ],
+    "lat": 25.67789,
+    "lon": -100.29766,
+    "tipo_por_linea": {
+      "L3": "elevado"
+    },
+    "tipo_dudoso": false,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": true,
+    "aprox": false,
+    "fuente_coordenadas": "Wikidata (propiedad P625), consultada 25/11/2026"
+  },
+  {
+    "id": "santa_lucia",
+    "nombre": "Santa Lucía",
+    "alias": [],
+    "lineas": [
+      "L3"
+    ],
+    "lat": 25.6714,
+    "lon": -100.29855,
+    "tipo_por_linea": {
+      "L3": "transicion"
+    },
+    "tipo_dudoso": true,
+    "transbordo": false,
+    "parada_s": 20,
+    "accesible": true,
+    "aprox": false,
+    "fuente_coordenadas": "Wikidata (propiedad P625), consultada 25/11/2026"
+  }
+]
