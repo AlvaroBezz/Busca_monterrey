@@ -63,11 +63,11 @@ def calcular_ruta(origen, destino, hora="08:15", dia="laborable", clima="despeja
 
     avisos = []
     if not en_horario_de_servicio(hora, datos.factores):
-        avisos.append("Fuera del horario de servicio (05:00–24:00): se calcula con el "
-                      "primer servicio de la mañana.")
+        avisos.append("A esa hora el metro está cerrado (abre de 05:00 a 24:00). "
+                      "Te mostramos el trayecto con el primer servicio de la mañana.")
     if clima_info["riesgo_suspension"] in ("Alta", "Muy alta"):
-        avisos.append(f"{clima_info['nombre']}: riesgo {clima_info['riesgo_suspension'].lower()} "
-                      "de suspensión del servicio en algunos tramos.")
+        avisos.append(f"{clima_info['nombre']}: es posible que el servicio se suspenda en algunos "
+                      "tramos. Consulta los avisos oficiales de Metrorrey antes de salir.")
 
     if origen == destino:
         est = datos.estaciones[origen]
@@ -141,12 +141,10 @@ def calcular_ruta(origen, destino, hora="08:15", dia="laborable", clima="despeja
                      if p["accion"] in ("subir", "bajar", "transbordo")
                      and not datos.estaciones[p["estacion"]]["accesible"]]
     if accesible and no_accesibles:
-        avisos.append("Ruta no totalmente accesible: L1 y L2 no están adaptadas "
-                      f"(estaciones afectadas: {', '.join(dict.fromkeys(no_accesibles))}).")
-    if any(s["linea"] == "L3" for s in segmentos):
-        avisos.append("Las distancias de la L3 tienen confianza baja (±20 %) en la hoja de datos.")
+        avisos.append("Parte del trayecto no está adaptado para movilidad reducida: las Líneas 1 y 2 "
+                      f"no tienen accesibilidad completa ({', '.join(dict.fromkeys(no_accesibles))}).")
     if minutos_del_dia(hora) + tiempo >= 24 * 60 and en_horario_de_servicio(hora, datos.factores):
-        avisos.append("Cuidado: el viaje termina después del cierre (24:00).")
+        avisos.append("Cuidado: llegarías después del cierre del metro (24:00).")
 
     return {
         "ok": True,
@@ -163,7 +161,8 @@ def calcular_ruta(origen, destino, hora="08:15", dia="laborable", clima="despeja
         "pasos": pasos,
         "segmentos": segmentos,
         "itinerario_texto": itinerario,
-        "desglose": {k: round(v, 2) for k, v in desglose.items()},
+        "desglose": {**{k: round(v, 2) for k, v in desglose.items()},
+                     "en_tren": round(desglose["marcha"] + desglose["paradas"], 2)},
         "camino_nodos": resultado.camino,
         "traza_astar": resultado.traza,
         "nodos_expandidos": resultado.nodos_expandidos,

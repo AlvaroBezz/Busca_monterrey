@@ -9,12 +9,28 @@ los eventos masivos y la accesibilidad.
 
 ![Colores de línea](https://img.shields.io/badge/L1-amarilla-F2C200) ![](https://img.shields.io/badge/L2-verde-2E9E44) ![](https://img.shields.io/badge/L3-roja-D7262E)
 
-## Requisitos
+## Verla sin instalar nada (enlace)
 
-- Python 3.10 o superior
-- Conexión a internet para ver el fondo del mapa (teselas de OpenStreetMap/CARTO)
+La app está pensada para publicarse gratis en [Render](https://render.com):
 
-## Instalación y ejecución
+1. Entra en https://render.com y regístrate con tu cuenta de GitHub.
+2. **New +** → **Web Service** → pestaña **Public Git Repository** → pega
+   `https://github.com/AlvaroBezz/Busca_monterrey` → **Connect**.
+3. Rellena: **Branch** `main` (o la rama que queráis enseñar), **Language** Python 3,
+   **Build Command** `pip install -r requirements.txt`, **Start Command** `python main.py`,
+   **Instance Type** Free → **Deploy Web Service**.
+4. En 2–3 minutos Render da un enlace `https://….onrender.com` que se puede compartir.
+
+En el plan gratuito, si nadie la usa durante 15 minutos se duerme, y la primera visita tarda
+alrededor de un minuto en despertarla.
+
+## Abrirla en tu ordenador
+
+Necesitas Python 3.10 o superior (en Windows, desde python.org marcando "Add Python to PATH").
+
+- **Windows**: descarga el proyecto (botón verde *Code* → *Download ZIP*), descomprímelo y haz
+  doble clic en `iniciar_windows.bat`. Se abre sola en el navegador.
+- **Cualquier sistema**:
 
 ```bash
 git clone https://github.com/AlvaroBezz/Busca_monterrey.git
@@ -23,18 +39,15 @@ pip install -r requirements.txt
 python main.py
 ```
 
-Se abre en el navegador en **http://localhost:8080**.
+Se abre en **http://localhost:8080**. Hace falta internet para el fondo del mapa.
 
 ### Cómo se usa
 
-1. Elige origen y destino en el panel (o haz clic en dos estaciones del mapa).
-2. Ajusta la hora, el día, la meteorología y las opciones (evento masivo, minimizar
-   transbordos, ruta accesible).
-3. Pulsa **Calcular ruta**: verás el tiempo total, la hora de llegada, el itinerario,
-   el desglose del tiempo y la ruta resaltada en el mapa.
-4. Abre **¿Cómo lo ha calculado A\*?** para ver la traza paso a paso (g, h, f) y la
-   comparación con Dijkstra. El botón **Ver animación** marca en el mapa los nodos
-   en el orden en que A\* los expande.
+1. Elige estación de salida y de llegada (o tócalas en el mapa), o pulsa un viaje popular.
+2. Indica la hora, el día, el tiempo que hace y tus preferencias (evento, menos transbordos,
+   ruta accesible).
+3. Pulsa **Buscar ruta**: verás cuánto tardas, a qué hora llegas, dónde subir y dónde cambiar
+   de línea, y la ruta dibujada en el mapa.
 
 ## Pruebas
 

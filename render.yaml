@@ -1,0 +1,12 @@
+# Despliegue en Render (https://render.com), plan gratuito.
+# Render lee este fichero si se crea el servicio como "Blueprint".
+services:
+  - type: web
+    name: metrorrey-ruta
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7

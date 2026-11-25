@@ -85,4 +85,4 @@ def test_lluvia_y_punta_tardan_mas():
 
 def test_fuera_de_horario_avisa():
     r = calcular_ruta("talleres", "exposicion", hora="02:00")
-    assert any("horario" in a for a in r["avisos"])
+    assert any("cerrado" in a for a in r["avisos"])

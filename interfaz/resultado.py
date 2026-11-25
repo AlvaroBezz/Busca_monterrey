@@ -1,122 +1,135 @@
-"""Tarjeta de resultado: tiempo, itinerario, desglose y explicación de A*."""
+"""Tarjetas de la columna izquierda: pantalla de bienvenida y resultado del viaje."""
 
 from nicegui import ui
 
-from interfaz.estilos import COLORES_DESGLOSE
-from metro.datos import NOMBRES_LINEA, cargar_datos
+from interfaz.estilos import COLORES_DESGLOSE, RUTAS_POPULARES
+from metro.coste import minutos_del_dia
+from metro.datos import COLORES_LINEA, NOMBRES_LINEA, cargar_datos
 
 
-def mostrar_resultado(r, al_animar):
+def _hora_mas(hora, minutos):
+    total = (minutos_del_dia(hora) + round(minutos)) % (24 * 60)
+    return f"{total // 60:02d}:{total % 60:02d}"
+
+
+def mostrar_bienvenida(al_elegir_ruta):
+    """Cifras de la red y viajes de ejemplo, antes de buscar nada."""
+    datos = cargar_datos()
+    km = sum(t["distancia_m"] for t in datos.tramos) / 1000
+    with ui.card().classes("tarjeta w-full p-5 gap-3"):
+        with ui.row().classes("w-full justify-around text-center"):
+            for cifra, texto in (("3", "líneas"), (str(len(datos.estaciones)), "estaciones"),
+                                 (f"{km:.0f} km", "de vía")):
+                with ui.column().classes("items-center gap-0"):
+                    ui.label(cifra).classes("text-3xl font-extrabold text-slate-900")
+                    ui.label(texto).classes("text-xs uppercase tracking-wide text-slate-500")
+        ui.separator()
+        ui.label("Viajes populares").classes("font-bold text-slate-800")
+        for origen, destino, titulo in RUTAS_POPULARES:
+            o, d = datos.estaciones[origen], datos.estaciones[destino]
+            with ui.row().classes("ruta-popular w-full items-center no-wrap gap-3 p-2") \
+                    .on("click", lambda o=origen, d=destino: al_elegir_ruta(o, d)):
+                ui.icon("near_me").classes("text-slate-400")
+                with ui.column().classes("gap-0 grow"):
+                    ui.label(titulo).classes("text-sm font-semibold")
+                    ui.label(f"{o['nombre']} → {d['nombre']}").classes("text-xs text-slate-500")
+                ui.icon("chevron_right").classes("text-slate-400")
+
+
+def mostrar_resultado(r):
     """Pinta el resultado de calcular_ruta() dentro del contenedor actual."""
     if not r["ok"]:
-        with ui.card().classes("tarjeta w-full bg-amber-50"):
-            ui.label(r["motivo"]).classes("font-medium")
+        with ui.card().classes("tarjeta w-full p-5"):
+            with ui.row().classes("items-center gap-2 no-wrap"):
+                ui.icon("info").classes("text-2xl text-blue-600")
+                ui.label(r["motivo"]).classes("font-medium")
         return
 
     datos = cargar_datos()
-    with ui.card().classes("tarjeta w-full gap-3"):
-        # --- Cifras principales
-        with ui.row().classes("w-full items-end justify-between"):
-            with ui.column().classes("gap-0"):
-                ui.label(f"{r['origen']} → {r['destino']}").classes("text-sm text-gray-500")
+    with ui.card().classes("tarjeta w-full p-0 gap-0 overflow-hidden"):
+        # --- Cabecera oscura con la duración
+        with ui.column().classes("cabecera w-full p-5 gap-2 text-white"):
+            ui.label(f"{r['origen']}  →  {r['destino']}").classes("text-sm opacity-80")
+            with ui.row().classes("w-full items-end justify-between"):
                 with ui.row().classes("items-baseline gap-1"):
                     ui.label(f"{r['tiempo_total_min']:.0f}").classes("cifra-grande")
-                    ui.label("min").classes("text-xl font-semibold text-gray-500")
-            with ui.column().classes("items-end gap-0"):
-                ui.label(f"Llegada ≈ {r['hora_llegada']}").classes("text-lg font-semibold")
-                ui.label(f"Salida {r['hora_salida']}").classes("text-xs text-gray-500")
-        with ui.row().classes("gap-1"):
-            transbordos = r["num_transbordos"]
-            ui.chip(f"{transbordos} transbordo{'s' if transbordos != 1 else ''}", icon="sync_alt").props("outline dense")
-            ui.chip(f"{r['distancia_km']:.1f} km", icon="straighten").props("outline dense")
-            ui.chip(r["franja"], icon="schedule").props("outline dense")
-            ui.chip(r["clima"], icon="cloud").props("outline dense")
+                    ui.label("min").classes("text-xl font-semibold opacity-80")
+                with ui.column().classes("items-end gap-0"):
+                    ui.label("Llegas a las").classes("text-xs opacity-70")
+                    ui.label(r["hora_llegada"]).classes("text-3xl font-bold")
+            with ui.row().classes("gap-2"):
+                t = r["num_transbordos"]
+                texto_t = "Sin transbordos" if t == 0 else f"{t} transbordo{'s' if t > 1 else ''}"
+                for texto, icono in ((texto_t, "sync_alt"),
+                                     (f"{r['distancia_km']:.1f} km", "straighten"),
+                                     (f"Salida {r['hora_salida']}", "schedule")):
+                    with ui.element("span").classes("insignia"):
+                        ui.icon(icono).classes("text-sm")
+                        ui.label(texto)
 
-        for aviso in r["avisos"]:
-            with ui.row().classes("w-full items-start no-wrap gap-2 rounded-lg bg-amber-100 text-amber-900 p-2"):
-                ui.icon("warning").classes("text-amber-600")
-                ui.label(aviso).classes("text-sm")
+        with ui.column().classes("w-full p-5 gap-4"):
+            for aviso in r["avisos"]:
+                with ui.row().classes("w-full items-start no-wrap gap-2 rounded-xl bg-amber-50 "
+                                      "border border-amber-200 text-amber-900 p-3"):
+                    ui.icon("warning_amber").classes("text-amber-600 text-lg")
+                    ui.label(aviso).classes("text-sm")
 
-        # --- Itinerario: un bloque por cada tramo dentro de una línea
-        ui.label("Itinerario").classes("font-bold mt-1")
-        for i, seg in enumerate(r["segmentos"]):
-            nombre_desde = datos.estaciones[seg["desde"]]["nombre"]
-            nombre_hasta = datos.estaciones[seg["hasta"]]["nombre"]
-            with ui.element("div").classes("segmento w-full").style(f"border-color: {seg['color']}"):
-                titulo = "Sube en" if i == 0 else "Transbordo en"
-                ui.label(f"{titulo} {nombre_desde}").classes("font-semibold")
-                ui.label(f"{NOMBRES_LINEA[seg['linea']]} · dirección {seg['direccion']}") \
-                    .classes("text-sm").style(f"color: {seg['color']}; filter: brightness(0.8)")
-                intermedias = [datos.estaciones[e]["nombre"] for e in seg["estaciones"][1:-1]]
-                texto = f"{seg['num_paradas']} parada{'s' if seg['num_paradas'] != 1 else ''}"
-                if intermedias:
-                    with ui.expansion(texto).props("dense").classes("text-sm text-gray-600 w-full"):
-                        ui.label(" · ".join(intermedias)).classes("text-xs")
-                else:
-                    ui.label(texto).classes("text-sm text-gray-600")
-                ui.label(f"min {seg['minuto_inicio']:.0f} → {seg['minuto_fin']:.0f}").classes("text-xs text-gray-400")
-        with ui.row().classes("items-center gap-2 ml-1"):
-            ui.icon("flag").classes("text-red-600")
-            ui.label(f"Baja en {r['destino']}").classes("font-semibold")
+            # --- Pasos del viaje
+            with ui.column().classes("w-full gap-0"):
+                for i, seg in enumerate(r["segmentos"]):
+                    _paso_segmento(datos, r, i, seg)
+                with ui.element("div").classes("paso"):
+                    with ui.element("div").classes("icono-paso").style("background:#DC2626"):
+                        ui.icon("flag").classes("text-sm")
+                    ui.label(f"Llegas a {r['destino']}").classes("font-bold text-slate-900")
+                    ui.label(f"Hacia las {r['hora_llegada']}").classes("text-sm text-slate-500")
 
-        # --- Desglose del tiempo
-        ui.label("¿En qué se va el tiempo?").classes("font-bold mt-1")
-        total = sum(r["desglose"][k] for k in COLORES_DESGLOSE) or 1
-        with ui.element("div").classes("barra-desglose w-full"):
-            for clave, (color, _) in COLORES_DESGLOSE.items():
-                ancho = 100 * r["desglose"][clave] / total
-                if ancho > 0:
-                    ui.element("div").style(f"width: {ancho}%; background: {color}")
-        with ui.row().classes("gap-x-4 gap-y-1"):
-            for clave, (color, etiqueta) in COLORES_DESGLOSE.items():
-                with ui.row().classes("items-center gap-1 no-wrap"):
-                    ui.element("span").style(f"width:10px;height:10px;border-radius:3px;background:{color}")
-                    ui.label(f"{etiqueta}: {r['desglose'][clave]:.1f} min").classes("text-xs")
-        if r["desglose"]["penalizaciones"]:
-            ui.label(f"Penalizaciones de preferencia (no son tiempo real): "
-                     f"+{r['desglose']['penalizaciones']:.0f} min en el coste de A*").classes("text-xs text-gray-500")
-
-        mostrar_explicacion_astar(r, al_animar)
+            # --- Desglose del tiempo en palabras sencillas
+            ui.label("¿En qué se va el tiempo?").classes("font-bold text-slate-800")
+            partes = {"en_tren": r["desglose"]["en_tren"], "esperas": r["desglose"]["esperas"],
+                      "transbordos": r["desglose"]["transbordos"]}
+            total = sum(partes.values()) or 1
+            with ui.element("div").classes("barra-desglose w-full"):
+                for clave, (color, _) in COLORES_DESGLOSE.items():
+                    if partes[clave] > 0:
+                        ui.element("div").style(f"width:{100 * partes[clave] / total}%;background:{color}")
+            with ui.row().classes("gap-x-5 gap-y-1"):
+                for clave, (color, etiqueta) in COLORES_DESGLOSE.items():
+                    if partes[clave] > 0:
+                        with ui.row().classes("items-center gap-1 no-wrap"):
+                            ui.element("span").classes("punto").style(f"background:{color}")
+                            ui.label(f"{etiqueta} · {partes[clave]:.0f} min").classes("text-xs text-slate-600")
+            ui.label(f"Calculado para: {r['franja'].lower()}, {r['clima'].lower()}.") \
+                .classes("text-xs text-slate-400")
 
 
-def mostrar_explicacion_astar(r, al_animar):
-    """Expansión con la traza paso a paso de A* y la comparación con Dijkstra."""
-    with ui.expansion("¿Cómo lo ha calculado A*?", icon="psychology").classes("w-full rounded-lg bg-indigo-50"):
-        a, d = r["nodos_expandidos"], r["nodos_expandidos_dijkstra"]
-        with ui.row().classes("gap-2"):
-            ui.chip(f"A*: {a} nodos expandidos", icon="bolt").props("color=indigo text-color=white dense")
-            ui.chip(f"Dijkstra: {d} nodos", icon="blur_on").props("outline dense")
-        ui.markdown(
-            "A* saca siempre de la frontera el nodo con menor **f(n) = g(n) + h(n)**: "
-            "g es el tiempo real acumulado y h la estimación optimista "
-            "(distancia en línea recta / 80 km/h). Dijkstra es lo mismo con h = 0, "
-            f"así que explora a ciegas en todas direcciones. Aquí A* ha expandido {d - a} "
-            "nodos menos y ha encontrado la misma ruta óptima."
-            if d > a else
-            "A* saca siempre de la frontera el nodo con menor **f(n) = g(n) + h(n)**. "
-            "En este trayecto h no ha permitido descartar nodos respecto a Dijkstra "
-            "(h = 0): las paradas y esperas hacen que h, que solo cuenta la línea recta "
-            "a 80 km/h, se quede corta. El resultado sigue siendo óptimo."
-        ).classes("text-sm")
-        columnas = [
-            {"name": "paso", "label": "Paso", "field": "paso", "align": "left"},
-            {"name": "nodo", "label": "Nodo expandido", "field": "nodo", "align": "left"},
-            {"name": "g", "label": "g (min)", "field": "g"},
-            {"name": "h", "label": "h (min)", "field": "h"},
-            {"name": "f", "label": "f = g + h", "field": "f"},
-            {"name": "frontera", "label": "Abiertos", "field": "frontera"},
-        ]
-        filas = [{**t, "nodo": _nombre_nodo(t["nodo"]), "g": f"{t['g']:.2f}",
-                  "h": f"{t['h']:.2f}", "f": f"{t['f']:.2f}"} for t in r["traza_astar"]]
-        ui.table(columns=columnas, rows=filas, row_key="paso", pagination=10) \
-            .props('dense flat rows-per-page-label="Filas por página"').classes("w-full text-xs")
-        ui.button("Ver animación en el mapa", icon="play_arrow", on_click=al_animar) \
-            .props("outline").classes("w-full")
-
-
-def _nombre_nodo(nodo):
-    """'cuauhtemoc@L2' → 'Cuauhtémoc (L2)'."""
-    if "@" not in nodo:
-        return nodo
-    estacion, linea = nodo.split("@")
-    return f"{cargar_datos().estaciones[estacion]['nombre']} ({linea})"
+def _paso_segmento(datos, r, i, seg):
+    """Un bloque del itinerario: subir (o cambiar) a una línea y viajar varias paradas."""
+    color = COLORES_LINEA[seg["linea"]]
+    desde = datos.estaciones[seg["desde"]]["nombre"]
+    hasta = datos.estaciones[seg["hasta"]]["nombre"]
+    hora = _hora_mas(r["hora_salida"], seg["minuto_inicio"])
+    duracion = seg["minuto_fin"] - seg["minuto_inicio"]
+    with ui.element("div").classes("paso").style(f"--color-paso:{color}"):
+        icono = "directions_subway" if i == 0 else "sync_alt"
+        with ui.element("div").classes("icono-paso").style(f"background:{color if i == 0 else '#1F2937'}"):
+            ui.icon(icono).classes("text-sm")
+        titulo = f"Sube en {desde}" if i == 0 else f"Cambia de línea en {desde}"
+        with ui.row().classes("w-full justify-between items-baseline no-wrap"):
+            ui.label(titulo).classes("font-bold text-slate-900")
+            ui.label(hora).classes("text-sm font-semibold text-slate-500")
+        with ui.row().classes("items-center gap-2 mt-1"):
+            texto_color = "#1F2937" if seg["linea"] == "L1" else "white"
+            ui.label(NOMBRES_LINEA[seg["linea"]]).style(
+                f"background:{color};color:{texto_color};padding:2px 10px;border-radius:999px;"
+                "font-weight:700;font-size:.8rem")
+            ui.label(f"dirección {seg['direccion']}").classes("text-sm text-slate-600")
+        paradas = seg["num_paradas"]
+        intermedias = [datos.estaciones[e]["nombre"] for e in seg["estaciones"][1:-1]]
+        resumen = f"{paradas} parada{'s' if paradas != 1 else ''} · {duracion:.0f} min · bájate en {hasta}"
+        if intermedias:
+            with ui.expansion(resumen).props("dense dense-toggle header-class='px-0 text-slate-600'") \
+                    .classes("w-full text-sm"):
+                ui.label("Pasas por: " + " · ".join(intermedias)).classes("text-xs text-slate-500")
+        else:
+            ui.label(resumen).classes("text-sm text-slate-600 mt-1")

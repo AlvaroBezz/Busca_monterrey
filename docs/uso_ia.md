@@ -60,3 +60,27 @@ revisar el código.
 - Plantilla de la memoria, si se generó con IA.
 - Claude (claude.ai): planificación del trabajo, reparto de tareas, estructura del repositorio
   y propuestas de texto para la memoria.
+
+---
+
+## 25/11/2026 · Versión para el público y despliegue · Herramienta: Claude Code (asistente de programación de Anthropic)
+
+- **Tarea concreta**: rediseñar la interfaz pensando en un ciudadano o un alcalde que evalúa la
+  propuesta (sin explicaciones técnicas en pantalla), arreglar el mapa que no se veía y
+  preparar una forma sencilla de compartir la web.
+- **Prompt utilizado** (mensaje literal de Mario):
+  > «Ya lo veo, esta genial, pero varios cambios. Lo van a corregir como si fuese un alcalde
+  > viendo una propuesta de web, asi que no lo hagas orientado a la teoria o las directrices de
+  > la practica, quita lo del A* no expliques nada de eso. Intenta meter el mapa que ahora mismo
+  > no sale. Que la interfaz sea mas para el publico, que este mas chula. Dime como puedo
+  > pasarselo a mis compañeros para que lo abran y lo vean desde su ordenador y que no sea muy
+  > lioso»
+- **Salida obtenida**: nuevo diseño de `interfaz/` (cabecera, buscador, viajes populares,
+  itinerario por pasos con horas, desglose del tiempo en lenguaje sencillo, leyenda del mapa);
+  se quitan de la pantalla la traza de A\*, la comparación con Dijkstra y la animación (el
+  algoritmo y las pruebas siguen igual); el mapa usa ahora CSS propio para su tamaño y un
+  fondo de calles de CARTO/OpenStreetMap; `main.py` acepta el puerto de un servidor;
+  `render.yaml` e `iniciar_windows.bat` para compartirla; README con los pasos.
+- **Qué se aceptó y qué se descartó/modificó**: *(a rellenar por el grupo)*
+- **Cómo se revisó y validó**: 21 pruebas de `pytest` en verde; la web se probó en navegador
+  de escritorio y móvil con NiceGUI 3.19 y 4.1.
