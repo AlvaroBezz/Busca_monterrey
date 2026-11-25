@@ -82,6 +82,10 @@ body {{ background: #EEF2F7; font-family: 'Inter', 'Segoe UI', system-ui, sans-s
   .tarjeta-mapa {{ position: relative; top: 0; height: 70vh; width: 100%; }}
   .solo-escritorio {{ display: none !important; }}
 }}
+.selector-fondo {{ position: absolute; left: 14px; bottom: 14px; z-index: 1000;
+                   box-shadow: 0 6px 20px rgba(15,23,42,.2); border-radius: 999px; }}
+.credito-mapa {{ position: absolute; right: 6px; bottom: 3px; z-index: 1000; font-size: 9px;
+                 color: #475569; background: rgba(255,255,255,.6); padding: 0 4px; border-radius: 4px; }}
 .mapa-metro {{ width: 100%; height: 100%; min-height: 420px; border-radius: 20px; }}
 """
 
@@ -95,10 +99,16 @@ CENTRO_MONTERREY = (25.712, -100.305)
 ZOOM_INICIAL = 13
 DISTANCIA_MAX_CLIC_KM = 0.4   # un clic elige la estación más cercana a menos de 400 m
 
-# Mapa base de CARTO (estilo "Voyager", con calles y nombres) sobre datos de OpenStreetMap
-TESELAS = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png"
-ATRIBUCION = ('&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> '
-              '&copy; <a href="https://carto.com/">CARTO</a>')
+# Fondos del mapa, gratuitos y sin clave. Sus licencias piden citar la fuente: se hace con un
+# crédito pequeño en una esquina del mapa (sin el pie de Leaflet).
+ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services"
+FONDOS = {
+    "normal": {"capas": ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+               "credito": "© OpenStreetMap"},
+    "satelite": {"capas": [ESRI + "/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                           ESRI + "/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"],
+                 "credito": "© Esri, Maxar, Earthstar Geographics"},
+}
 
 
 class MapaMetro:
@@ -111,17 +121,20 @@ class MapaMetro:
         self.capas_red = []        # líneas y estaciones de la red
         self.capas_ruta = []       # ruta resaltada y marcadores de origen/destino
         self.capas_obras = []      # líneas 4 y 6 (en construcción, solo informativas)
+        self.capas_fondo = []      # teselas del fondo (normal o satélite)
 
         with ui.element("div").style("position: relative; width: 100%; height: 100%"):
             self.mapa = ui.leaflet(center=CENTRO_MONTERREY, zoom=ZOOM_INICIAL,
-                                   options={"zoomControl": True, "attributionControl": True}) \
+                                   options={"zoomControl": True, "attributionControl": False}) \
                 .classes("mapa-metro")
-            # Sustituimos la capa de teselas por defecto por una más clara y moderna
-            for capa in list(self.mapa.layers):
+            for capa in list(self.mapa.layers):      # quitamos el fondo que trae NiceGUI
                 self.mapa.remove_layer(capa)
-            self.mapa.tile_layer(url_template=TESELAS,
-                                 options={"attribution": ATRIBUCION, "maxZoom": 19,
-                                          "subdomains": "abcd"})
+            ui.toggle({"normal": "Mapa", "satelite": "Satélite"}, value="normal",
+                      on_change=lambda e: self.poner_fondo(e.value)) \
+                .props("rounded unelevated no-caps dense toggle-color=grey-9 color=white "
+                       "text-color=grey-9").classes("selector-fondo")
+            self.credito = ui.label().classes("credito-mapa")
+            self.poner_fondo("normal")
             with ui.element("div").classes("leyenda-mapa"):
                 ui.label("Red de Metrorrey").classes("text-xs font-bold text-gray-500 uppercase mb-1")
                 for linea, color in COLORES_LINEA.items():
@@ -169,6 +182,15 @@ class MapaMetro:
                            "fillColor": "#FFFFFF", "fillOpacity": 1,
                            "opacity": 0.5 if atenuada else 1}]))
         self._poner_nombres()
+
+    def poner_fondo(self, clave):
+        """Cambia el fondo del mapa entre el callejero (OpenStreetMap) y el satélite (Esri)."""
+        with self.mapa:
+            for capa in self.capas_fondo:
+                self.mapa.remove_layer(capa)
+            self.capas_fondo = [self.mapa.tile_layer(url_template=url, options={"maxZoom": 19})
+                                for url in FONDOS[clave]["capas"]]
+        self.credito.set_text(FONDOS[clave]["credito"])
 
     def dibujar_obras(self):
         """Líneas 4 y 6 en discontinua: están en construcción y NO se usan para calcular rutas.

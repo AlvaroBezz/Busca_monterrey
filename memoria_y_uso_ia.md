@@ -147,7 +147,7 @@ ruta óptima; una h más ajustada (por ejemplo, con la velocidad media) dejaría
 | Python 3.10+ | Lenguaje |
 | NetworkX | Estructura del grafo (el A\* es propio; NetworkX solo se usa en las pruebas para comparar con su Dijkstra) |
 | NiceGUI | Interfaz web en Python (panel, tarjetas, tabla de la traza) |
-| Leaflet + OpenStreetMap/CARTO (vía `ui.leaflet` de NiceGUI) | Mapa con las líneas y la ruta |
+| Leaflet + OpenStreetMap / Esri (satélite) (vía `ui.leaflet` de NiceGUI) | Mapa con las líneas y la ruta |
 | openpyxl | Leer el Excel para generar los JSON |
 | pytest | Pruebas automáticas |
 | Git y GitHub | Control de versiones |
@@ -299,3 +299,9 @@ revisar el código.
   `metro.py`; el Excel queda en la raíz; se quitan `excel_a_json.py`, `render.yaml`,
   `iniciar_windows.bat` y la carpeta `docs/` (su contenido está en este archivo). Lo quitado
   sigue en el historial de git. 23 pruebas en verde y la web comprobada en el navegador.
+- **Fondo del mapa** (mensaje de Mario: «quita las marcas de agua, el pie de pagina del mapa con
+  lo de leaflet y todo eso y intenta poner el mapa en vista satelite o normla, pero es que se ve
+  vacio»): CARTO empezó a pedir clave y salía «API KEY REQUIRED». Se cambia a OpenStreetMap
+  (callejero) y Esri World Imagery (satélite), gratuitos y sin clave, con un selector
+  «Mapa / Satélite». Se quita el pie de Leaflet y se deja solo un crédito pequeño, que exigen
+  las licencias de OpenStreetMap y Esri.

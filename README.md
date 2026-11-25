@@ -94,7 +94,7 @@ El detalle, con un ejemplo numérico, está en [memoria_y_uso_ia.md](memoria_y_u
 - Accesibilidad de L1 y L2: ABC Noticias, 18/10/2023.
 - Líneas 4 y 6 (en construcción, solo en el mapa): posiciones aproximadas de OpenStreetMap,
   consultadas el 25/11/2026. No se usan para calcular rutas hasta que abran.
-- Mapa: © OpenStreetMap contributors, © CARTO.
+- Mapa: © OpenStreetMap contributors (callejero) y © Esri, Maxar, Earthstar Geographics (satélite).
 
 ## Autores
 
