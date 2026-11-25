@@ -3,7 +3,7 @@
 Práctica de búsqueda de Inteligencia Artificial (ETSIINF, UPM, curso 2026-27, grupo 205).
 
 Aplicación web en Python que calcula y muestra el trayecto óptimo entre dos estaciones
-del Metro de Monterrey (Metrorrey), líneas 1, 2 y 3, con un **algoritmo A\* programado por
+del Metro de Monterrey (Metrorrey), líneas 1, 2 y 3 (la 4 y la 6, en obras, aparecen en el mapa), con un **algoritmo A\* programado por
 nosotros**. El coste tiene en cuenta la franja horaria, la meteorología, los transbordos,
 los eventos masivos y la accesibilidad.
 
@@ -66,31 +66,24 @@ Comprueban, entre otras cosas, que:
 
 ```
 Busca_monterrey/
-├── main.py                  arranca la web (NiceGUI)
-├── requirements.txt
+├── main.py            la web (NiceGUI): estilos, mapa, buscador, resultado y arranque
+├── metro.py           el cálculo: datos, grafo, g(n), h(n), A* y calcular_ruta()
+├── test_metro.py      pruebas con pytest
+├── excel_a_json.py    convierte el Excel del grupo en los JSON de data/
 ├── data/
 │   ├── estaciones.json      38 estaciones con coordenadas, líneas y accesibilidad
 │   ├── tramos.json          38 tramos con distancia, tiempo de marcha y tipo de vía
 │   ├── factores.json        parámetros de g(n) y h(n): franjas, clima, transbordos
+│   ├── lineas_en_obras.json Líneas 4 y 6 (solo para el mapa, posiciones aproximadas)
 │   └── fuentes/             Excel original de tiempos del grupo
-├── scripts/excel_a_json.py  convierte el Excel en los JSON anteriores
-├── metro/
-│   ├── datos.py             carga los JSON
-│   ├── grafo.py             grafo NetworkX (un nodo por estación y línea)
-│   ├── coste.py             g(n): coste de cada arista según el escenario
-│   ├── heuristica.py        h(n): distancia haversine / 80 km/h
-│   ├── astar.py             A* propio con traza
-│   └── ruta.py              calcular_ruta(): lo que usa la interfaz
-├── interfaz/                página, panel, mapa (ui.leaflet), resultado y estilos
-├── tests/                   pruebas con pytest
 ├── legacy/grafo_inicial.py  primer grafo de Ramón (historia del proyecto)
-└── docs/
-    ├── uso_ia.md            registro obligatorio del uso de IA
-    ├── para_memoria.md      tablas y ejemplos listos para la memoria
-    └── capturas/            capturas para la memoria
+└── docs/                    uso de IA, material para la memoria y capturas
 ```
 
-Si se cambia el Excel, se regeneran los datos con `python scripts/excel_a_json.py`.
+Cada archivo de código está dividido en secciones numeradas, con una explicación al
+principio de cada una. Quien vaya a defender el A\* solo tiene que leer `metro.py`.
+
+Si se cambia el Excel, se regeneran los datos con `python excel_a_json.py`.
 
 ## Modelo en una línea
 
@@ -108,6 +101,8 @@ El detalle, con un ejemplo numérico, está en [docs/para_memoria.md](docs/para_
 - Coordenadas L3: Wikidata (propiedad P625 de cada estación). Simón Bolívar: Wikipedia en español
   (la lista en inglés le pone por error las coordenadas de Mitras).
 - Accesibilidad de L1 y L2: ABC Noticias, 18/10/2023.
+- Líneas 4 y 6 (en construcción, solo en el mapa): posiciones aproximadas de OpenStreetMap,
+  consultadas el 25/11/2026. No se usan para calcular rutas hasta que abran.
 - Mapa: © OpenStreetMap contributors, © CARTO.
 
 ## Autores

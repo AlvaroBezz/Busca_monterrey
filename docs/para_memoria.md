@@ -1,7 +1,7 @@
 # Material para la memoria
 
 Datos sacados del código tal como está en este repositorio (cifras obtenidas ejecutando
-`metro/ruta.py`). Si se cambian los parámetros de `data/factores.json`, hay que volver a
+`metro.py`). Si se cambian los parámetros de `data/factores.json`, hay que volver a
 calcularlas.
 
 ## 3.1 Gestión topológica de los transbordos
@@ -24,7 +24,7 @@ estación destino con coste 0).
 - Coordenadas: Wikipedia «List of Metrorrey stations» (L1 y L2), Wikidata P625 (L3) y
   Wikipedia en español (Simón Bolívar, porque la lista en inglés repite las de Mitras).
 - Formato: tres ficheros JSON (`estaciones.json`, `tramos.json`, `factores.json`) generados
-  por `scripts/excel_a_json.py`, que además valida que hay 38 estaciones, 38 tramos y que cada
+  por `excel_a_json.py`, que además valida que hay 38 estaciones, 38 tramos y que cada
   línea es una cadena continua.
 - Las distancias de la L3 tienen confianza baja (±20 %) según la propia hoja.
 
@@ -113,7 +113,7 @@ factores de marcha ≥ 1.
 
 **Consistente**: por la desigualdad triangular, h(u) ≤ d(u,v)/V_max + h(v) ≤ coste(u,v) + h(v).
 En un transbordo u y v tienen las mismas coordenadas, así que h(u) = h(v).
-La prueba `tests/test_heuristica.py` lo verifica en las 82 aristas dirigidas × 38 destinos ×
+La prueba `test_metro.py` lo verifica en las 82 aristas dirigidas × 38 destinos ×
 90 escenarios (todas las franjas × todos los climas), y comprueba que ningún tramo del Excel
 tiene un tiempo de marcha menor que la línea recta a 80 km/h.
 

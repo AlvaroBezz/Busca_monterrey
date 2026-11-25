@@ -1,7 +1,7 @@
 """Convierte la hoja de cálculo de tiempos de Metrorrey en los JSON que usa la app.
 
 Uso (desde la raíz del repositorio):
-    python scripts/excel_a_json.py
+    python excel_a_json.py
 
 Lee:  data/fuentes/Metrorrey_tiempos_entre_estaciones.xlsx
 Crea: data/tramos.json, data/estaciones.json y data/factores.json
@@ -20,7 +20,7 @@ from pathlib import Path
 
 import openpyxl
 
-RAIZ = Path(__file__).resolve().parent.parent
+RAIZ = Path(__file__).resolve().parent
 EXCEL = RAIZ / "data" / "fuentes" / "Metrorrey_tiempos_entre_estaciones.xlsx"
 CARPETA_DATOS = RAIZ / "data"
 

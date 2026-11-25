@@ -1,0 +1,42 @@
+{
+  "nota": "Líneas en construcción a 25/11/2026. Solo se dibujan en el mapa, no se usan para calcular rutas. Posiciones APROXIMADAS tomadas de OpenStreetMap (consulta Overpass del 25/11/2026). La Línea 4 solo incluye el tramo que OSM tiene con nombre; la Línea 6 va de Parque Fundidora a Apodaca según OSM. El grupo debe revisarlas antes de la entrega.",
+  "fuentes": ["OpenStreetMap (© OpenStreetMap contributors)", "Wikipedia: Metrorrey", "MVS Noticias 20/10/2026", "Quadratín 02/11/2026", "Los Tubos 03/11/2026"],
+  "lineas": [
+    {
+      "id": "L4",
+      "nombre": "Línea 4 (en construcción)",
+      "color": "#7C3AED",
+      "estaciones": [
+        {"nombre": "Obispado / Torre Rise", "lat": 25.67070, "lon": -100.34711},
+        {"nombre": "Fuerza Civil", "lat": 25.66857, "lon": -100.33914},
+        {"nombre": "Serafín Peña", "lat": 25.66697, "lon": -100.33028},
+        {"nombre": "Pino Suárez", "lat": 25.66560, "lon": -100.32221},
+        {"nombre": "Puente del Papa", "lat": 25.66436, "lon": -100.31542},
+        {"nombre": "Macroplaza", "lat": 25.66320, "lon": -100.30911},
+        {"nombre": "Barrio Antiguo", "lat": 25.66583, "lon": -100.30333}
+      ]
+    },
+    {
+      "id": "L6",
+      "nombre": "Línea 6 (en construcción)",
+      "color": "#EA580C",
+      "estaciones": [
+        {"nombre": "Parque Fundidora", "lat": 25.67422, "lon": -100.29013},
+        {"nombre": "Y Griega", "lat": 25.68278, "lon": -100.27992},
+        {"nombre": "Churubusco", "lat": 25.68613, "lon": -100.26720},
+        {"nombre": "Lindavista", "lat": 25.68858, "lon": -100.25863},
+        {"nombre": "Libertad", "lat": 25.69116, "lon": -100.24959},
+        {"nombre": "Bonifacio Salinas", "lat": 25.69366, "lon": -100.24061},
+        {"nombre": "San Rafael", "lat": 25.69636, "lon": -100.23127},
+        {"nombre": "La Victoria", "lat": 25.70407, "lon": -100.22480},
+        {"nombre": "La Talaverna", "lat": 25.71010, "lon": -100.22175},
+        {"nombre": "La Fe", "lat": 25.72002, "lon": -100.21644},
+        {"nombre": "Isidro Sepúlveda", "lat": 25.73716, "lon": -100.20756},
+        {"nombre": "El Milagro", "lat": 25.74565, "lon": -100.20273},
+        {"nombre": "Concordia", "lat": 25.75198, "lon": -100.19934},
+        {"nombre": "Apodaca", "lat": 25.77435, "lon": -100.18775},
+        {"nombre": "Arco Vial", "lat": 25.78043, "lon": -100.17462}
+      ]
+    }
+  ]
+}

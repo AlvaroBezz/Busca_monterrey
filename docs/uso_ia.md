@@ -106,3 +106,29 @@ revisar el código.
 - **Qué se aceptó y qué se descartó/modificó**: *(a rellenar por el grupo)*
 - **Cómo se revisó y validó**: 22 pruebas de `pytest` en verde; prueba en navegador del modo
   «Llegar a las» y de la hora vacía.
+
+---
+
+## 25/11/2026 · Líneas 4 y 6 en obras y código en menos archivos · Herramienta: Claude Code (asistente de programación de Anthropic)
+
+- **Prompts utilizados** (mensajes literales de Mario):
+  > «corrigo, metemos la 4 y 6 tambien pero con aviso que estan en obras o temporalmente fuera
+  > de servicio o lo que sea»
+
+  > «hay muchisimos archivos de codigo distintos, es un lio, haz muchos menos archivos y todo
+  > mas compactado, que luego es un lio para comprobar todo, si puedes, sino puedes nada,
+  > prioriza que siga funcionando la aplicacion»
+- **Salida obtenida**:
+  - `data/lineas_en_obras.json`: estaciones de la Línea 4 (7, solo el tramo con nombre en OSM)
+    y de la Línea 6 (15, de Parque Fundidora a Arco Vial). **Posiciones aproximadas** sacadas
+    por la IA de OpenStreetMap (consulta Overpass del 25/11/2026). Se dibujan en el mapa en
+    discontinua con el aviso «en obras / temporalmente fuera de servicio» y **no** se usan para
+    calcular rutas.
+  - El código pasa de 15 archivos a 4: `metro.py` (antes `metro/datos.py`, `grafo.py`,
+    `coste.py`, `heuristica.py`, `astar.py`, `ruta.py`), `main.py` (antes `interfaz/*` y
+    `main.py`), `test_metro.py` (antes `tests/*`) y `excel_a_json.py` (antes en `scripts/`).
+    El contenido de las funciones no cambia; solo se juntan en secciones numeradas.
+- **Qué se aceptó y qué se descartó/modificó**: *(a rellenar por el grupo)*
+- **Cómo se revisó y validó**: 23 pruebas de `pytest` en verde (se añade una que comprueba
+  que las líneas 4 y 6 no entran en el grafo); prueba en navegador de escritorio y móvil.
+  *(El grupo debe comprobar en Google Maps las posiciones de las líneas 4 y 6.)*
