@@ -66,7 +66,7 @@ Comprueban, entre otras cosas, que:
 ```
 Busca_monterrey/
 ├── main.py                 la web: estilos, mapa, buscador, resultado y arranque
-├── metro.py                el cálculo: grafo, g(n), h(n), A*, calcular_ruta() y los datos de la red
+├── metro.py                el cálculo: datos de la red, grafo, g(n), h(n), A* y calcular_ruta()
 ├── test_metro.py           pruebas con pytest
 ├── memoria_y_uso_ia.md     material para la memoria y registro obligatorio de uso de IA
 ├── Metrorrey_tiempos_entre_estaciones.xlsx   hoja de tiempos del grupo (origen de los datos)

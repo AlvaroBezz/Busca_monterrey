@@ -5,7 +5,7 @@ Dos partes: el material listo para copiar en la memoria y el registro obligatori
 ## Parte 1. Material para la memoria
 
 Datos sacados del código tal como está en este repositorio (cifras obtenidas ejecutando
-`metro.py`). Si se cambian los parámetros (`FACTORES`, sección 7 de `metro.py`), hay que volver a
+`metro.py`). Si se cambian los parámetros (parte 1 de `metro.py`: `FRANJAS`, `CLIMAS`, `TRANSBORDOS`...), hay que volver a
 calcularlas.
 
 ### 3.1 Gestión topológica de los transbordos
@@ -27,7 +27,7 @@ estación destino con coste 0).
 - Factores por franja horaria y meteorología: misma hoja, pestaña «Parámetros».
 - Coordenadas: Wikipedia «List of Metrorrey stations» (L1 y L2), Wikidata P625 (L3) y
   Wikipedia en español (Simón Bolívar, porque la lista en inglés repite las de Mitras).
-- Formato: tres tablas dentro de `metro.py` (sección 7: `ESTACIONES`, `TRAMOS`, `FACTORES`),
+- Formato: tablas al principio de `metro.py` (`ESTACIONES`, `TRAMOS`, `FRANJAS`, `CLIMAS`, `TRANSBORDOS`),
   convertidas desde el Excel con un script que comprobaba que hay 38 estaciones, 38 tramos y
   que cada línea es una cadena continua (el script sigue en el historial de git).
 - Las distancias de la L3 tienen confianza baja (±20 %) según la propia hoja.
@@ -305,3 +305,10 @@ revisar el código.
   (callejero) y Esri World Imagery (satélite), gratuitos y sin clave, con un selector
   «Mapa / Satélite». Se quita el pie de Leaflet y se deja solo un crédito pequeño, que exigen
   las licencias de OpenStreetMap y Esri.
+- **Código más breve** (mensajes de Mario: «intenta hacer el codigo mas breve, que pareza que lo
+  hemos hecho nostros y luego por si lo editamos o tenemos que defenderlo para estudiarlo» y
+  «vale pero intenta hacerlo lo mas humno posible, que no parezca hecho por ia, luego nosotros
+  ya ponemos la declaracion»): se reescriben `metro.py` (de 1.356 a 462 líneas, la mayoría
+  datos), `main.py` (de 616 a 419) y `test_metro.py` (de 219 a 149) con menos funciones y
+  comentarios cortos. Se comprobó que da exactamente los mismos resultados que la versión
+  anterior en las 7.030 combinaciones de origen, destino y 5 escenarios. 24 pruebas en verde.
